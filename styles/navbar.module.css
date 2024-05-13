@@ -1,0 +1,60 @@
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  margin-left: 10%;
+}
+
+.links li {
+  margin-right: 20px;
+}
+
+.link {
+  text-transform: uppercase;
+  color: #fff;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.link.active,
+.link:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+/* Добавленные стили для выпадающего меню */
+.dropdown {
+  position: relative;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  min-width: 100px;
+  z-index: 1;
+}
+
+.dropdownContent a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdownContent a:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
