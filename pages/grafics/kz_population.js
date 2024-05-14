@@ -5,6 +5,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css'; // Импорт стилей highlight.js
 import 'github-markdown-css'; // Импорт стилей GitHub Markdown
 
+
 const KzPopulation = () => {
   const [data, setData] = useState(null);
   const [chart, setChart] = useState(null);
@@ -112,10 +113,25 @@ const KzPopulation = () => {
     setSelectedYear(event.target.value);
   };
 
+  const handleDownloadCSV = async () => {
+    try {
+      const response = await fetch('https://raw.githubusercontent.com/TyuninaA/VercelTesting/177d66a2442bc9649fb8431a95f138e8b681965e/city_population.csv');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'city_population.csv');
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      console.error('Error downloading CSV:', error);
+    }
+  };
+
   return (
     <div className="container">
       <h1 className="center-text">Статистика населения по регионам Казахстана</h1>
-
+  
       <div className="filter-panel">
         <div className="filter">
           <label htmlFor="regionSelect">Выберите регион:</label>
@@ -126,7 +142,7 @@ const KzPopulation = () => {
             ))}
           </select>
         </div>
-
+  
         <div className="filter">
           <label htmlFor="yearSelect">Выберите год:</label>
           <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
@@ -134,9 +150,41 @@ const KzPopulation = () => {
           </select>
         </div>
       </div>
-
+  
       <canvas id="populationChart" width="400" height="200"></canvas>
-
+  
+      <div>
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Регион</th>
+              <th>Общее население</th>
+              <th>Мужчины</th>
+              <th>Женщины</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data && data.map(item => (
+              <tr key={item.region}>
+                <td>{item.region}</td>
+                <td>{item.total}</td>
+                <td>{item.males}</td>
+                <td>{item.females}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+  
+      <div className="button-container">
+        <button className="transparent-button" onClick={handleDownloadCSV}>
+          <img src="/downloading.png" alt="Download CSV" />
+        </button>
+        <a href="https://github.com/open-data-kazakhstan/city-population.git" target="_blank" rel="noopener noreferrer">
+          <img src="/github.png" alt="GitHub Repository"  width="50" height="50"/>
+        </a>
+      </div>
+  
       <div>
         <h2>README.md:</h2>
         <div className="markdown-body">
