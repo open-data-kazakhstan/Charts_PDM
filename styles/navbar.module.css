@@ -7,7 +7,7 @@
 .links {
   display: flex;
   list-style: none;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 .links li {
@@ -16,14 +16,16 @@
 
 .link {
   text-transform: uppercase;
-  color: #fff;
-  margin-right: 20px;
+  color: #181E35;
+  margin-right: 70px;
   text-decoration: none;
+  font-weight:bold;
+  font-size: 50px;
 }
 
 .link.active,
 .link:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255);
 }
 
 
@@ -39,7 +41,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #333;
+  background-color: #ffffff;
   min-width: 100px;
   z-index: 1;
 }
@@ -47,7 +49,7 @@
 .dropdownContent a {
   display: block;
   padding: 10px;
-  color: #fff;
+  color:#181E35;
   text-decoration: none;
 }
 
