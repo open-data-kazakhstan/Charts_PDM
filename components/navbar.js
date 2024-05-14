@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <nav className={styles.nav}>
             <div className={styles.logo}>
-                PDM
+                <img src="/logo.png" alt="Logo" className={styles.logoImage} />
             </div>
             <div className={styles.links}>
                 <Link href="/" passHref className={styles.link}>Home</Link>
