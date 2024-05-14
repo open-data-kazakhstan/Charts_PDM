@@ -8,7 +8,8 @@ import 'github-markdown-css'; // Импорт стилей GitHub Markdown
 const KzPopulation = () => {
   const [data, setData] = useState(null);
   const [chart, setChart] = useState(null);
-  const [selectedParameter, setSelectedParameter] = useState('All');
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedYear, setSelectedYear] = useState('2022');
   const [readmeText, setReadmeText] = useState('');
 
   useEffect(() => {
@@ -51,8 +52,8 @@ const KzPopulation = () => {
   useEffect(() => {
     if (data) {
       let filteredData = data;
-      if (selectedParameter !== 'All') {
-        filteredData = data.filter(item => item.region === selectedParameter);
+      if (selectedRegion !== '') {
+        filteredData = data.filter(item => item.region === selectedRegion);
       }
 
       if (chart) {
@@ -101,22 +102,41 @@ const KzPopulation = () => {
 
       setChart(newChart);
     }
-  }, [data, selectedParameter]);
+  }, [data, selectedRegion]);
 
-  const handleParameterChange = (event) => {
-    setSelectedParameter(event.target.value);
+  const handleRegionChange = (event) => {
+    setSelectedRegion(event.target.value);
+  };
+
+  const handleYearChange = (event) => {
+    setSelectedYear(event.target.value);
   };
 
   return (
-    <div>
-      <h1>Статистика населения по регионам Казахстана.</h1>
-      <select value={selectedParameter} onChange={handleParameterChange}>
-        <option value="All">All</option>
-        {data && data.map(item => (
-          <option key={item.region} value={item.region}>{item.region}</option>
-        ))}
-      </select>
+    <div className="container">
+      <h1 className="center-text">Статистика населения по регионам Казахстана</h1>
+
+      <div className="filter-panel">
+        <div className="filter">
+          <label htmlFor="regionSelect">Выберите регион:</label>
+          <select id="regionSelect" value={selectedRegion} onChange={handleRegionChange}>
+            <option value="">Все регионы</option>
+            {data && data.map(item => (
+              <option key={item.region} value={item.region}>{item.region}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="filter">
+          <label htmlFor="yearSelect">Выберите год:</label>
+          <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
+            <option value="2022">2022</option>
+          </select>
+        </div>
+      </div>
+
       <canvas id="populationChart" width="400" height="200"></canvas>
+
       <div>
         <h2>README.md:</h2>
         <div className="markdown-body">
