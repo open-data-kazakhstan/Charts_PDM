@@ -127,10 +127,6 @@ a {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-.logoImage {
-  width: 100px; /* Укажите нужную ширину и высоту для вашего логотипа */
-}
-
 
 canvas {
   margin-top: 20px;
@@ -180,3 +176,10 @@ canvas {
   height: 50px;
 }
 
+.logo {
+  flex: 1;
+}
+
+.logoImage {
+  width: 50%; /* Уменьшаем логотип в два раза */
+}
