@@ -7,7 +7,7 @@
 .links {
   display: flex;
   list-style: none;
-  margin-left: 50%;
+  margin-left: 40%;
 }
 
 .links li {
@@ -20,7 +20,7 @@
   margin-right: 70px;
   text-decoration: none;
   font-weight:bold;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .link.active,
