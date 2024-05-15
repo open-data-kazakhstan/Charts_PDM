@@ -1,13 +1,14 @@
 import Link from "next/link";
-
+import styles from "../../styles/grafics.module.css";
 
 const Grafics = () => (
-  <div>
-    <h1 style={{ color: "#181E35" }}>Вы можете ознакомиться со следующими графиками:</h1>
-    <div className="buttonContainer">
+  <div className={styles.container}>
+    <h1 className={styles.header}>Вы можете ознакомиться со следующими графиками:</h1>
+    <div className={styles.buttonContainer}>
       <Link href="/grafics/kz_population" passHref>
-        <button className="button">KZ Population</button>
+        <button className={styles.button}>KZ Population</button>
       </Link>
+      <p className={styles.description}>График, показывающий население Казахстана по регионам.</p>
     </div>
   </div>
 );
