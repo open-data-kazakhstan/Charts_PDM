@@ -1,0 +1,64 @@
+/* Container style */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Позиционируем элементы ближе к заголовку */
+    min-height: 80vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header style */
+  .header {
+    color: #181E35;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Button container style */
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Уменьшаем расстояние от заголовка */
+  }
+  
+  /* Button style */
+  .button {
+    padding: 10px 20px;
+    background-color: #2f3f8f; /* Изменение цвета кнопки */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Изменение формы кнопки на более округлую */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+    margin-bottom: 10px; /* Добавляем отступ снизу для описания */
+  }
+  
+  /* Button hover and focus styles */
+  .button:hover,
+  .button:focus {
+    background-color: #882145;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.3);
+  }
+  
+  .button:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+  }
+  
+  /* Description style */
+  .description {
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+  }
+  
